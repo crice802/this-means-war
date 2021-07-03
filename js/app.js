@@ -20,11 +20,22 @@ let winner, cpuPlaying, cpuWin, playerPlaying, playerWin, warWinner, playerAnte,
 
 function init ()
 function init() {
+    winner = null
+    cpuPlaying = []
+    cpuWin = []
+    playerAnte = []
+    playerPlaying = []
+    playerWin = []
+    platerAnte = []
+    warWinner = ''
     
 }
 function render() {
     
 }
 function cardComp() {
+    
+}
+function handleClick(evt) {
     
 }
