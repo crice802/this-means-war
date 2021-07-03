@@ -1,3 +1,15 @@
 body {
     background-color: violet;
 }
+section{
+    height: 50vmax;
+    width: 30vmax;
+ border: black;
+ border-style: dashed
+    text-align: ;
+}
+div{
+    border: black;
+ border-style: double;
+ 
+}

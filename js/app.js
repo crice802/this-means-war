@@ -5,7 +5,7 @@ console.log('sanity check')
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-
+let winner, cpuPlaying, cpuWin, playerPlaying, playerWin, warWinner, playerAnte, cpuAnte
 
 
 /*------------------------ Cached Element References ------------------------*/
