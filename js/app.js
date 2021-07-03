@@ -17,3 +17,14 @@ let winner, cpuPlaying, cpuWin, playerPlaying, playerWin, warWinner, playerAnte,
 
 
 /*-------------------------------- Functions --------------------------------*/
+
+function init ()
+function init() {
+    
+}
+function render() {
+    
+}
+function cardComp() {
+    
+}
