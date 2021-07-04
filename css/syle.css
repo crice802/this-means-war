@@ -13,3 +13,11 @@ div{
  border-style: double;
  
 }
+.cpuGrid{
+    display:inline
+}
+
+.playerGrid{
+    display: inline;
+    
+}
