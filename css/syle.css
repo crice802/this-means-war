@@ -1,32 +1,18 @@
 body {
     background-color: violet;
     display: grid;
-    min-height: 100vh;
-}
-section{
-    height: 50vmax;
-    width: 30vmax;
- border: black;
- border-style: dashed
-    text-align: ;
-}
-/* div{
-    border: black;
- 
-}
-.cpuGrid{
-    display:-ms-inline-grid
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-rows: repeat(4, [row-start] 1fr);
 }
 
-.playerGrid{
-    display: -ms-inline-grid;
-    
-}
 
-.playBtn{
-max-width: 13%;
-}
-
-.replayBtn{
-    max-width: 13%;
+/* .cpuPlaying{
+    grid-template-columns:16vmax repeat(auto-fill, );
 } */
+
+button{
+max-width: 6vmax;
+max-height: 3vmax;
+text-align: center;
+}
+
