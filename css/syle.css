@@ -1,18 +1,51 @@
-body {
+.gameBoard {
     background-color: violet;
     display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
-    grid-template-rows: repeat(4, [row-start] 1fr);
+    grid-template-columns: repeat(12, [col-start] 8vmax);
+    grid-template-rows: repeat(12, [row-start] 8vmax);
+    column-gap: 10px;
+   row-gap: 15px;
 }
 
-
-/* .cpuPlaying{
-    grid-template-columns:16vmax repeat(auto-fill, );
-} */
 
 button{
 max-width: 6vmax;
 max-height: 3vmax;
 text-align: center;
+}
+
+.PlayerPlayWin {
+grid-column: 3;
+grid-row: 5;
+-ms-grid-row-span: 7;
+
+}
+
+.PlayerAnte{
+    grid-column: 4;
+    grid-row: 4;
+    -ms-grid-row-span: 8;
+}
+
+.playerPlaying{
+    grid-column: 5;
+    grid-row: 5;
+}
+
+.cpuPlaying{
+    grid-column: 6;
+    grid-row: 5;
+}
+
+.cpuAnte{
+    grid-column: 7;
+    grid-row: 4;
+    -ms-grid-row-span: 8;
+}
+
+.cpuPlayWin{
+    grid-column: 8;
+    grid-row: 5;
+    -ms-grid-row-span: 7;
 }
 
