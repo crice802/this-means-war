@@ -174,32 +174,32 @@
 .card.spades.A,
 .card.sA,
 .card.♠A {
-  background-image: url("../images/spades/spades-A.svg"); }
+  background-image: url("../images/spades/spades-A.gif"); }
 
 .card.spades.K,
 .card.sK,
 .card.♠K {
-  background-image: url("../images/spades/spades-K.svg"); }
+  background-image: url("../images/spades/spades-K.gif"); }
 
 .card.spades.Q,
 .card.sQ,
 .card.♠Q {
-  background-image: url("../images/spades/spades-Q.svg"); }
+  background-image: url("../images/spades/spades-Q.gif"); }
 
 .card.spades.J,
 .card.sJ,
 .card.♠J {
-  background-image: url("../images/spades/spades-J.svg"); }
+  background-image: url("../images/spades/spades-J.gif"); }
 
 .card.spades.r10,
 .card.s10,
 .card.♠10 {
-  background-image: url("../images/spades/spades-r10.svg"); }
+  background-image: url("../images/spades/spades-r10.gif"); }
 
 .card.spades.r09,
 .card.s09,
 .card.♠09 {
-  background-image: url("../images/spades/spades-r09..gif"); }
+  background-image: url("../images/spades/spades-r09.gif"); }
 
 .card.spades.r08,
 .card.s08,
@@ -239,22 +239,22 @@
 .card.clubs.A,
 .card.cA,
 .card.♣A {
-  background-image: url("../images/clubs/clubs-A..gif"); }
+  background-image: url("../images/clubs/clubs-A.gif"); }
 
 .card.clubs.K,
 .card.cK,
 .card.♣K {
-  background-image: url("../images/clubs/clubs-K..gif"); }
+  background-image: url("../images/clubs/clubs-K.gif"); }
 
 .card.clubs.Q,
 .card.cQ,
 .card.♣Q {
-  background-image: url("../images/clubs/clubs-Q..gif"); }
+  background-image: url("../images/clubs/clubs-Q.gif"); }
 
 .card.clubs.J,
 .card.cJ,
 .card.♣J {
-  background-image: url("../images/clubs/clubs-J..gif"); }
+  background-image: url("../images/clubs/clubs-J.gif"); }
 
 .card.clubs.r10,
 .card.c10,
