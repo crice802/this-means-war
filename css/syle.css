@@ -1,5 +1,7 @@
 body {
     background-color: violet;
+    display: grid;
+    min-height: 100vh;
 }
 section{
     height: 50vmax;
@@ -8,16 +10,23 @@ section{
  border-style: dashed
     text-align: ;
 }
-div{
+/* div{
     border: black;
- border-style: double;
  
 }
 .cpuGrid{
-    display:inline
+    display:-ms-inline-grid
 }
 
 .playerGrid{
-    display: inline;
+    display: -ms-inline-grid;
     
 }
+
+.playBtn{
+max-width: 13%;
+}
+
+.replayBtn{
+    max-width: 13%;
+} */

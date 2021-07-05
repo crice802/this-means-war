@@ -30,11 +30,12 @@ function init() {
     playerWin = []
     platerAnte = []
     warWinner = ''
-    
 }
+    
 function render() {
     
 }
+
 function cardComp(cpuPlaying, playerPlaying){
     //compares the arrays of cpu and player to determine which is higher then pushes into winning pile array (helper function to use as my cb for my forEach loops)
     cpuPlaying > playerPlaying ? cpuPlaying.push(cpuWin) : playerPlaying.push(playerWin)
@@ -44,12 +45,16 @@ function cardComp(cpuPlaying, playerPlaying){
 if(playerPlaying === null && playerWin === null){
     winner = 'CPU'
     // if comp has no cards to play or any in winning hand player wins
-}else if (cpuPlaying === null && cpuWin === null)){
+}else if (cpuPlaying === null && cpuWin === null){
     winner = 'PLAYER'
 }return winner
 }
 
 
 function handleClick(evt) {
+    
+}
+
+function shuffle() {
     
 }
