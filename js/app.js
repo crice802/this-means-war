@@ -98,10 +98,23 @@ function compCards (){
 //pushing playing cards into player win arr 
     playerWin.push(playerPlaying[0])
     playerWin.push(cpuPlaying[0])
+    playerWin.push(cpuAnte[0])
+    playerWin.push(cpuAnte[0])
+    playerWin.push(cpuAnte[0])
+    playerWin.push(platerAnte[0])
+    playerWin.push(platerAnte[0])
+    playerWin.push(platerAnte[0])
     // pushing playing arr into cpu winning arrs
   }else if (playerPlaying[0] < cpuPlaying[0]){
     cpuWin.push(playerPlaying[0])
     cpuWin.push(cpuPlaying[0])
+    cpuWin.push(cpuAnte[0])
+    cpuWin.push(cpuAnte[0])
+    cpuWin.push(cpuAnte[0])
+    cpuWin.push(platerAnte[0])
+    cpuWin.push(platerAnte[0])
+    cpuWin.push(platerAnte[0])
+
   }else{
     //cards match
     warStart ()
