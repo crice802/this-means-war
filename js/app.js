@@ -1,5 +1,3 @@
-console.log("sanity check");
-
 /*-------------------------------- Constants --------------------------------*/
 const starterDeck = [
   { dA: 14 },
@@ -86,28 +84,38 @@ function init() {
   playerWin = [];
   platerAnte = [];
   warWinner = "";
+
 }
 console.log("after init ()");
-function render() {}
+function render() {
+  //display the state of game i.e image of cards into correct div
 
-// function cardComp(cpuPlaying, playerPlaying){
-//     //compares the arrays of cpu and player to determine which is higher then pushes into winning pile array (helper function to use as my cb for my forEach loops)
-//     cpuPlaying > playerPlaying ? cpuPlaying.push(cpuWin) : playerPlaying.push(playerWin)
-//     // no winners yet null is our playing status
-//     return winner = null
-//     //if player has no cards in hand or in winning array game over
-// if(playerPlaying === null && playerWin === null){
-//     winner = 'CPU'
-//     // if comp has no cards to play or any in winning hand player wins
-// }else if (cpuPlaying === null && cpuWin === null){
-//     winner = 'PLAYER'
-// }return winner
-// }
-
-function handleClick() {
-  firstShuffle();
 }
 
+function compCards (idx){
+  // compare the value of each index between two arrays of objects
+  if (playerPlaying[0] > cpuPlaying[0]){
+    playerWin.push[playerPlaying[0]]
+    playerWin = cpuPlaying.push(card)
+  }else if (playerPlaying < cpuPlaying){
+    playerWin = playerPlaying.push(card)
+    playerWin = cpuPlaying.push(card)
+  }else{warStart ()}
+}
+
+function warStart(){
+  console.log('hi')
+}
+
+compCards(playerPlaying, cpuPlaying);
+
+function handleClick() {
+  shuffle(starterDeck);
+  console.log('success')
+  compCards()
+}
+
+//helper function to shuffle deck type
 function shuffle(deck) {
   deck.forEach((card, idx) => {
     let randIdx = Math.floor(Math.random() * deck.length);
@@ -122,7 +130,7 @@ function shuffle(deck) {
 }
 
 function dealAll(deck) {
-  //split deck array into two new arrays to deal decks
+  //split deck array into two new arrays to deal decks to each player
   deck.forEach((card, idx) => {
     if (idx % 2 === 1) {
       playerPlaying.push(card);
@@ -132,6 +140,7 @@ function dealAll(deck) {
   });
 }
 
+//deals cards from winning hand into playing hand for player
 function dealPlayer(playerWin) {
   shuffle(playerWin);
   playerWin.forEach((card) => {
@@ -139,17 +148,13 @@ function dealPlayer(playerWin) {
   });
 }
 
+//deals cards from winning hand into playing hand for Cpu
 function dealCpu(cpuWin) {
     shuffle(cpuWin);
     cpuWin.forEach((card) => {
       cpuPlaying.push(card);
     });
   }
-
-function whosWinner() {
-  if (playerPlaying || playerWin !== []) {
-  }
-}
 
 let shuffledDeck = shuffle(starterDeck);
 dealAll(shuffledDeck);
