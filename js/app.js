@@ -92,19 +92,39 @@ function render() {
 
 }
 
-function compCards (idx){
-  // compare the value of each index between two arrays of objects
+function compCards (){
+  // compare the value of top index  between two arrays 
   if (playerPlaying[0] > cpuPlaying[0]){
-    playerWin.push[playerPlaying[0]]
-    playerWin = cpuPlaying.push(card)
-  }else if (playerPlaying < cpuPlaying){
-    playerWin = playerPlaying.push(card)
-    playerWin = cpuPlaying.push(card)
-  }else{warStart ()}
+//pushing playing cards into player win arr 
+    playerWin.push(playerPlaying[0])
+    playerWin.push(cpuPlaying[0])
+    // pushing playing arr into cpu winning arrs
+  }else if (playerPlaying[0] < cpuPlaying[0]){
+    cpuWin.push(playerPlaying[0])
+    cpuWin.push(cpuPlaying[0])
+  }else{
+    //cards match
+    warStart ()
+  }
+  //removing the cards from the deck
+  playerPlaying.shift()
+  cpuPlaying.shift()
 }
 
 function warStart(){
-  console.log('hi')
+  platerAnte.push(playerPlaying[0])
+  platerAnte.push(playerPlaying[0])
+  platerAnte.push(playerPlaying[0])
+  cpuAnte.push(cpuPlaying[0])
+  cpuAnte.push(cpuPlaying[0])
+  cpuAnte.push(cpuPlaying[0])
+  playerPlaying.shift()
+  cpuPlaying.shift()
+  playerPlaying.shift()
+  cpuPlaying.shift()
+  playerPlaying.shift()
+  cpuPlaying.shift()
+  compCards()
 }
 
 compCards(playerPlaying, cpuPlaying);
