@@ -47,9 +47,8 @@ button {
 }
 
 body{
-  height:75vmax;
-  width: 75vmax;
+ 
   background-image: url("../images/backgrounds/background.gif");
   background-repeat: no-repeat;
-  background-size: cover;
+
 }
