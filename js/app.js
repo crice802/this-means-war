@@ -74,11 +74,11 @@ let cpuAnte2 = document.getElementById("cpuAnte2");
 let cpuAnte3 = document.getElementById("cpuAnte3");
 
 /*----------------------------- Event Listeners -----------------------------*/
-document.getElementById("playBtn").addEventListener("click", render);
+document.getElementById("playBtn").addEventListener("click", playGame);
 document.getElementById("replayBtn").addEventListener("click", init);
 
 /*-------------------------------- Functions --------------------------------*/
-init();
+// init();
 
 function init() {
   winner = null;
