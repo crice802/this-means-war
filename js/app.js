@@ -67,7 +67,9 @@ let winner,
 /*------------------------ Cached Element References ------------------------*/
 let playBtn = document.getElementById("#playBtn");
 let replayBtn = document.getElementById("#replayBtn");
-
+let playerCompCard = document.getElementById("playerCompCard")
+let cpuCompCard = document.getElementById('cpuCompCard')
+let 
 /*----------------------------- Event Listeners -----------------------------*/
 document.getElementById("playBtn").addEventListener("click", render);
 document.getElementById("replayBtn").addEventListener("click", init);
@@ -96,7 +98,10 @@ function render() {
   //remove all classes from cards
   console.log(playerClass)
   //add class to cards
+  playerCompCard.classList.add(playerClass)
+  playerCompCard.classList.remove('outline')
   //display cards to div
+  console.log(playerPlaying)
   //after user interacts progress or time out
   //run card comp
 }
