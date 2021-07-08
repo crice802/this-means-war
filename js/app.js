@@ -69,7 +69,7 @@ let playBtn = document.getElementById("#playBtn");
 let replayBtn = document.getElementById("#replayBtn");
 
 /*----------------------------- Event Listeners -----------------------------*/
-document.getElementById("playBtn").addEventListener("click", handleClick);
+document.getElementById("playBtn").addEventListener("click", render);
 document.getElementById("replayBtn").addEventListener("click", init);
 
 /*-------------------------------- Functions --------------------------------*/
@@ -83,70 +83,90 @@ function init() {
   playerPlaying = [];
   playerWin = [];
   platerAnte = [];
-  warWinner = "";
-
 }
-console.log("after init ()");
+console.log("after init()");
 function render() {
   //display the state of game i.e image of cards into correct div
-
+  let playerCard = playerPlaying[0]
+  let cpuCard = cpuPlaying[0]
+  // get key from card to update the div class 
+  let playerClass = Object.keys(playerCard)[0];
+  let cpuClass = Object.keys(cpuCard)[0];
+  //remove all classes from cards
+  //add class to cards
+  //display cards to div
+  //after user interacts progress or time out
+  //run card comp
 }
 
-function compCards (){
-  // compare the value of top index  between two arrays 
-  if (playerPlaying[0] > cpuPlaying[0]){
-//pushing playing cards into player win arr 
-    playerWin.push(playerPlaying[0])
-    playerWin.push(cpuPlaying[0])
-    playerWin.push(cpuAnte[0])
-    playerWin.push(cpuAnte[0])
-    playerWin.push(cpuAnte[0])
-    playerWin.push(platerAnte[0])
-    playerWin.push(platerAnte[0])
-    playerWin.push(platerAnte[0])
-    // pushing playing arr into cpu winning arrs
-  }else if (playerPlaying[0] < cpuPlaying[0]){
-    cpuWin.push(playerPlaying[0])
-    cpuWin.push(cpuPlaying[0])
-    cpuWin.push(cpuAnte[0])
-    cpuWin.push(cpuAnte[0])
-    cpuWin.push(cpuAnte[0])
-    cpuWin.push(platerAnte[0])
-    cpuWin.push(platerAnte[0])
-    cpuWin.push(platerAnte[0])
-
-  }else{
+function compCards() {
+  // compare the value of top index  between two arrays
+  //need to add shift between each push
+  if (playerPlaying[0] > cpuPlaying[0]) {
+    //pushing playing cards into player win arr
+    playerWin.push(playerPlaying[0]);
+    playerPlaying.shift();
+    playerWin.push(cpuPlaying[0]);
+    cpuPlaying.shift();
+    playerWin.push(cpuAnte[0]);
+    cpuAnte.shift()
+    playerWin.push(cpuAnte[0]);
+    cpuAnte.shift()
+    playerWin.push(cpuAnte[0]);
+    cpuAnte.shift()
+    playerWin.push(playerAnte[0]);
+    playerAnte.shift()
+    playerWin.push(playerAnte[0]);
+    playerAnte.shift()
+    playerWin.push(playerAnte[0]);
+    playerAnte.shift()
+    // pushing playing arr into cpu winning arrs and removing cards after
+  } else if (playerPlaying[0] < cpuPlaying[0]) {
+    cpuWin.push(playerPlaying[0]);
+    playerPlaying.shift()
+    cpuWin.push(cpuPlaying[0]);
+    cpuPlaying.shift()
+    cpuWin.push(cpuAnte[0]);
+    cpuAnte.shift()
+    cpuWin.push(cpuAnte[0]);
+    cpuAnte.shift()
+    cpuWin.push(cpuAnte[0]);
+    cpuAnte.shift()
+    cpuWin.push(playerAnte[0]);
+    playerAnte.shift()
+    cpuWin.push(playerAnte[0]);
+    playerAnte.shift()
+    cpuWin.push(playerAnte[0]);
+    playerAnte.shift()
+  } else {
     //cards match
-    warStart ()
+    warStart();
   }
   //removing the cards from the deck
-  playerPlaying.shift()
-  cpuPlaying.shift()
+  playerPlaying.shift();
+  cpuPlaying.shift();
+  
 }
 
-function warStart(){
-  platerAnte.push(playerPlaying[0])
-  platerAnte.push(playerPlaying[0])
-  platerAnte.push(playerPlaying[0])
-  cpuAnte.push(cpuPlaying[0])
-  cpuAnte.push(cpuPlaying[0])
-  cpuAnte.push(cpuPlaying[0])
-  playerPlaying.shift()
-  cpuPlaying.shift()
-  playerPlaying.shift()
-  cpuPlaying.shift()
-  playerPlaying.shift()
-  cpuPlaying.shift()
-  compCards()
+function warStart() {
+  platerAnte.push(playerPlaying[0]);
+  playerPlaying.shift();
+  platerAnte.push(playerPlaying[0]);
+  playerPlaying.shift();
+  platerAnte.push(playerPlaying[0]);
+  playerPlaying.shift();
+  cpuAnte.push(cpuPlaying[0]);
+  cpuPlaying.shift();
+  cpuAnte.push(cpuPlaying[0]);
+  cpuPlaying.shift();
+  cpuAnte.push(cpuPlaying[0]);
+  cpuPlaying.shift();
+  compCards();
 }
-
-compCards(playerPlaying, cpuPlaying);
-
-function handleClick() {
-  shuffle(starterDeck);
-  console.log('success')
-  compCards()
-}
+  
+  
+  
+  
 
 //helper function to shuffle deck type
 function shuffle(deck) {
@@ -174,22 +194,44 @@ function dealAll(deck) {
 }
 
 //deals cards from winning hand into playing hand for player
-function dealPlayer(playerWin) {
-  shuffle(playerWin);
-  playerWin.forEach((card) => {
+function dealPlayer(deck) {
+  deck.forEach((card) => {
     playerPlaying.push(card);
+    playerWin.shift()
   });
 }
 
 //deals cards from winning hand into playing hand for Cpu
-function dealCpu(cpuWin) {
-    shuffle(cpuWin);
-    cpuWin.forEach((card) => {
-      cpuPlaying.push(card);
-    });
-  }
+function dealCpu(deck) {
+  deck.forEach((card) => {
+    cpuPlaying.push(card);
+    cpuWin.shift()
+  });
+}
 
-let shuffledDeck = shuffle(starterDeck);
-dealAll(shuffledDeck);
-console.log(playerPlaying);
-console.log(cpuPlaying);
+function checkWinner() {
+  if (playerPlaying.length === 0 && playerWin.length === 0) {
+    winner = "cpu";
+    return
+  } else if (cpuPlaying.length === 0 && cpuWin.length === 0) {
+    winner = "player";
+    return
+  } else {
+    winner = null;
+  }
+  if (playerPlaying.length === 0 && playerWin.length !== 0) {
+    shuffle(playerWin);
+    dealPlayer(playerWin);
+  }
+  if (cpuPlaying.length === 0 && cpuWin !== 0) {
+    shuffle(cpuWin);
+    dealCpu(cpuWin);
+  }
+}
+
+function playGame() {
+  init();
+  shuffle(starterDeck);
+  dealAll(starterDeck);
+}
+playGame()

@@ -1,5 +1,4 @@
 .gameBoard {
-  background-color: violet;
   display: grid;
   grid-template-columns: repeat(12, [col-start] 8vmax);
   grid-template-rows: repeat(12, [row-start] 8vmax);
@@ -45,4 +44,12 @@ button {
   grid-column: 8;
   grid-row: 5;
   -ms-grid-row-span: 7;
+}
+
+body{
+  height:75vmax;
+  width: 75vmax;
+  background-image: url("../images/backgrounds/background.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
