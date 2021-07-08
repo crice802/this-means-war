@@ -89,10 +89,12 @@ function render() {
   //display the state of game i.e image of cards into correct div
   let playerCard = playerPlaying[0]
   let cpuCard = cpuPlaying[0]
+  console.log(playerPlaying[0])
   // get key from card to update the div class 
   let playerClass = Object.keys(playerCard)[0];
   let cpuClass = Object.keys(cpuCard)[0];
   //remove all classes from cards
+  console.log(playerClass)
   //add class to cards
   //display cards to div
   //after user interacts progress or time out
@@ -164,11 +166,7 @@ function warStart() {
   compCards();
 }
   
-  
-  
-  
-
-//helper function to shuffle deck type
+  //helper function to shuffle deck type
 function shuffle(deck) {
   deck.forEach((card, idx) => {
     let randIdx = Math.floor(Math.random() * deck.length);
