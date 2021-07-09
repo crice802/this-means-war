@@ -20,6 +20,7 @@ how to play:
 ==============================
 
   ## screenshots
+   ![This-Means-WAR!?](/images/Screen%20Shot%202021-07-08%20at%209.45.40%20PM.png)
 
 ## Technologies used
 
@@ -34,4 +35,5 @@ js, css, html, pixelArt
 
 * Aftin Combs - card, sprite, and background design
 * lou arnos - debugging 
+* Ben Manley - mentor
 

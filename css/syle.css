@@ -1,4 +1,5 @@
 .gameBoard {
+ 
   display: grid;
   grid-template-columns: repeat(12, [col-start] 8vmax);
   grid-template-rows: repeat(12, [row-start] 8vmax);
@@ -49,6 +50,5 @@ button {
 body{
  
   background-image: url("../images/backgrounds/background.gif");
-  background-repeat: no-repeat;
-
+  background-repeat:round
 }
