@@ -81,7 +81,6 @@ let cpuAnte1 = document.getElementById("cpuAnte1");
 let cpuAnte2 = document.getElementById("cpuAnte2");
 let cpuAnte3 = document.getElementById("cpuAnte3");
 let displayMsg = document.getElementById("displayMsg");
-console.log()
 /*----------------------------- Event Listeners -----------------------------*/
 document.getElementById("playBtn").addEventListener("click", playGame);
 document.getElementById("replayBtn").addEventListener("click", reset);
@@ -143,7 +142,6 @@ function init() {
   cpuAnte = [];
   shuffle(starterDeck);
   dealAll(starterDeck);
-  
 }
 
 function render() {
@@ -193,14 +191,14 @@ function compCards() {
     playerPlaying.shift();
     playerWin.push(cpuPlaying[0]);
     cpuPlaying.shift();
-    displayMsg.innerText = 'Player you won this hand'
+    displayMsg.innerText = "Player you won this hand";
     // pushing playing arr into cpu winning arrs and removing cards after
   } else if (playerCard < cpuCard) {
     cpuWin.push(playerPlaying[0]);
     playerPlaying.shift();
     cpuWin.push(cpuPlaying[0]);
     cpuPlaying.shift();
-    displayMsg.innerText = 'Grrrr Cpu won this hand'
+    displayMsg.innerText = "Grrrr Cpu won this hand";
   }
   if (playerCard === cpuCard) {
     warStart();
@@ -279,11 +277,11 @@ function dealCpu(deck) {
 function checkWinner() {
   if (playerPlaying.length === 0 && playerWin.length === 0) {
     winner = "cpu";
-    displayMsg.innerText = 'Too bad the Cpu won this war!'
+    displayMsg.innerText = "Too bad the Cpu won this war!";
     return;
   } else if (cpuPlaying.length === 0 && cpuWin.length === 0) {
     winner = "player";
-    displayMsg.innerText = 'Congratz player you won!'
+    displayMsg.innerText = "Congratz player you won!";
     return;
   } else {
     winner = null;
@@ -302,6 +300,6 @@ function playGame() {
   compCards();
   checkWinner();
 }
-function reset (){
-  window.location.reload()
+function reset() {
+  window.location.reload();
 }
