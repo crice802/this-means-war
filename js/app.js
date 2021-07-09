@@ -53,7 +53,6 @@ const starterDeck = [
   "s03",
   "s02",
 ];
-
 /*---------------------------- Variables (state) ----------------------------*/
 let winner,
   cpuPlaying,
@@ -66,7 +65,6 @@ let winner,
   cpuPrevCard,
   pCardRemove,
   cCardRemove;
-
 /*------------------------ Cached Element References ------------------------*/
 let playBtn = document.getElementById("#playBtn");
 let replayBtn = document.getElementById("#replayBtn");
@@ -82,11 +80,11 @@ let cpuWinDeck = document.getElementById("cpuWinDeck");
 let cpuAnte1 = document.getElementById("cpuAnte1");
 let cpuAnte2 = document.getElementById("cpuAnte2");
 let cpuAnte3 = document.getElementById("cpuAnte3");
-
+let displayMsg = document.getElementById("displayMsg");
+console.log()
 /*----------------------------- Event Listeners -----------------------------*/
 document.getElementById("playBtn").addEventListener("click", playGame);
-document.getElementById("replayBtn").addEventListener("click", init);
-
+document.getElementById("replayBtn").addEventListener("click", reset);
 /*-------------------------------- Functions --------------------------------*/
 init();
 
@@ -145,90 +143,102 @@ function init() {
   cpuAnte = [];
   shuffle(starterDeck);
   dealAll(starterDeck);
+  
 }
-console.log("after init()");
+
 function render() {
   //display the state of game i.e image of cards into correct div
   playerCompCard.classList.remove(pCardRemove);
   cpuCompCard.classList.remove(cCardRemove);
-  let pClassAdd = playerPlaying[0]
-  let cClassAdd = cpuPlaying[0]
-  pCardRemove = playerPlaying[0]
-  cCardRemove = cpuPlaying[0]
+  let pClassAdd = playerPlaying[0];
+  let cClassAdd = cpuPlaying[0];
+  pCardRemove = playerPlaying[0];
+  cCardRemove = cpuPlaying[0];
   if (playerPlaying.length > 1) {
     playerCompCard.classList.remove("outline", "back");
     cpuCompCard.classList.remove("outline", "back");
   }
+  // displayMsg.innerText = "hi"
   if (playerWin.length > 1) {
-    playerWinDeck.classList.add('back')
-    playerWinDeck.classList.remove('outline')
+    playerWinDeck.classList.add("back");
+    playerWinDeck.classList.remove("outline");
   }
   if (cpuWin.length > 1) {
-    cpuWinDeck.classList.add('back')
-    cpuWinDeck.classList.remove('outline')
+    cpuWinDeck.classList.add("back");
+    cpuWinDeck.classList.remove("outline");
   }
   if (playerPlaying.length > 1) {
-    playerDeck.classList.add('back')
-    playerDeck.classList.remove('outline')
+    playerDeck.classList.add("back");
+    playerDeck.classList.remove("outline");
   }
   if (cpuPlaying.length > 1) {
-    cpuDeck.classList.add('back')
-    cpuDeck.classList.remove('outline')
+    cpuDeck.classList.add("back");
+    cpuDeck.classList.remove("outline");
   }
   //add class to cards
   //display cards to div
   playerCompCard.classList.add(pClassAdd);
   cpuCompCard.classList.add(cClassAdd);
 }
-
 //after user interacts progress or time out
 //run card comp
-
 function compCards() {
   // compare the value of top index  between two arrays
   //need to add shift between each push
   let playerCard = lookupValue(playerPlaying[0]);
   let cpuCard = lookupValue(cpuPlaying[0]);
-
   if (playerCard > cpuCard) {
     //pushing playing cards into player win arr
     playerWin.push(playerPlaying[0]);
     playerPlaying.shift();
     playerWin.push(cpuPlaying[0]);
     cpuPlaying.shift();
-
+    displayMsg.innerText = 'Player you won this hand'
     // pushing playing arr into cpu winning arrs and removing cards after
   } else if (playerCard < cpuCard) {
     cpuWin.push(playerPlaying[0]);
     playerPlaying.shift();
     cpuWin.push(cpuPlaying[0]);
     cpuPlaying.shift();
-  } else {
-    //cards match
+    displayMsg.innerText = 'Grrrr Cpu won this hand'
+  }
+  if (playerCard === cpuCard) {
     warStart();
   }
-  console.log(playerPlaying, cpuPlaying);
 }
 
 function warStart() {
-  console.log('hi')
-  playerAnte.push(playerPlaying[0]);
+  playerAnte.push(playerPlaying[1]);
   playerPlaying.shift();
-  playerAnte.push(playerPlaying[0]);
+  playerAnte.push(playerPlaying[1]);
   playerPlaying.shift();
-  playerAnte.push(playerPlaying[0]);
+  playerAnte.push(playerPlaying[1]);
   playerPlaying.shift();
-  cpuAnte.push(cpuPlaying[0]);
+  cpuAnte.push(cpuPlaying[1]);
   cpuPlaying.shift();
-  cpuAnte.push(cpuPlaying[0]);
+  cpuAnte.push(cpuPlaying[1]);
   cpuPlaying.shift();
-  cpuAnte.push(cpuPlaying[0]);
+  cpuAnte.push(cpuPlaying[1]);
   cpuPlaying.shift();
   // need to update the compare card after pushing 3 cards into array
-
   // compCards();
+  renderWar();
 }
 
+function renderWar() {
+  playerAnte1.classList.remove("outline");
+  playerAnte1.classList.add(playerAnte[0]);
+  playerAnte2.classList.remove("outline");
+  playerAnte2.classList.add(playerAnte[1]);
+  playerAnte3.classList.remove("outline");
+  playerAnte3.classList.add(playerAnte[2]);
+  cpuAnte1.classList.remove("outline");
+  cpuAnte1.classList.add(cpuAnte[0]);
+  cpuAnte2.classList.remove("outline");
+  cpuAnte2.classList.add(cpuAnte[1]);
+  cpuAnte3.classList.remove("outline");
+  cpuAnte3.classList.add(cpuAnte[2]);
+}
 //helper function to shuffle deck type
 function shuffle(deck) {
   deck.forEach((card, idx) => {
@@ -242,7 +252,6 @@ function shuffle(deck) {
   });
   return deck;
 }
-
 function dealAll(deck) {
   //split deck array into two new arrays to deal decks to each player
   deck.forEach((card, idx) => {
@@ -253,7 +262,6 @@ function dealAll(deck) {
     }
   });
 }
-
 //deals cards from winning hand into playing hand for player
 function dealPlayer(deck) {
   deck.forEach((card) => {
@@ -261,7 +269,6 @@ function dealPlayer(deck) {
     playerWin.shift();
   });
 }
-
 //deals cards from winning hand into playing hand for Cpu
 function dealCpu(deck) {
   deck.forEach((card) => {
@@ -269,13 +276,14 @@ function dealCpu(deck) {
     cpuWin.shift();
   });
 }
-
 function checkWinner() {
   if (playerPlaying.length === 0 && playerWin.length === 0) {
     winner = "cpu";
+    displayMsg.innerText = 'Too bad the Cpu won this war!'
     return;
   } else if (cpuPlaying.length === 0 && cpuWin.length === 0) {
     winner = "player";
+    displayMsg.innerText = 'Congratz player you won!'
     return;
   } else {
     winner = null;
@@ -289,38 +297,11 @@ function checkWinner() {
     dealCpu(cpuWin);
   }
 }
-
 function playGame() {
   render();
   compCards();
-  checkWinner()
+  checkWinner();
 }
-
-function renderWar (){
-  playerAnte1.classList.remove('outline')
-  playerAnte2.classList.remove('outline')
-  playerAnte3.classList.remove('outline')
-  cpuAnte1.classList.remove('outline')
-  cpuAnte2.classList.remove('outline')
-  cpuAnte3.classList.remove('outline')
-playerAnte1.classList.add(pClassAdd)
-playerAnte2.classList.add(pClassAdd)
-playerAnte3.classList.add(pClassAdd)
-cpuAnte1.classList.add(cClassAdd)
-cpuAnte1.classList.add(cClassAdd)
-cpuAnte1.classList.add(cClassAdd)
+function reset (){
+  window.location.reload()
 }
-
-
-// cpuWin.push(cpuAnte[0]);
-// cpuAnte.shift();
-// cpuWin.push(cpuAnte[0]);
-// cpuAnte.shift();
-// cpuWin.push(cpuAnte[0]);
-// cpuAnte.shift();
-// cpuWin.push(playerAnte[0]);
-// playerAnte.shift();
-// cpuWin.push(playerAnte[0]);
-// playerAnte.shift();
-// cpuWin.push(playerAnte[0]);
-// playerAnte.shift();
