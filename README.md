@@ -30,7 +30,7 @@ how to play:
 ![css](images/css%20logo.png)
 ![html](images/html%20logo.png)
 ![piskel](images/piskel%20app%20logo.png)
-Javascrpit, css, html, piskel app
+# Javascrpit, css, html, piskel app
 ## Next Steps
 
 - animate card flipping
