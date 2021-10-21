@@ -1,5 +1,5 @@
 # this-means-war
-
+This is my first project developed while in General Assembly 12 week intense software engineering imersive bootcamp.
 ## why war?
 
 # i have always loved the card game war. As a kid i would play this as my favorite card game. So when we recived the challenge of making a simple browser game this was one of my first choices.
