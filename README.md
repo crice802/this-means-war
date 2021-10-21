@@ -26,9 +26,9 @@ how to play:
 
 ## Technologies used
 
-![js](/images/js%20logo.png)
-![css](images/css%20logo.png)
-![html](images/html%20logo.png)
+![js](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png)
+![css](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png)
+![html](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png)
 ![piskel](images/piskel%20app%20logo.png)
 # Javascrpit, css, html, piskel app
 ## Next Steps
